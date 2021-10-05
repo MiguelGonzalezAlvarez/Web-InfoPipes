@@ -1,7 +1,6 @@
-<h1>{{ nombre | titlecase }}</h1>
-<h1>{{ valor | number }}</h1>
-<h1>{{ objeto | json }}</h1>
-
-<button (click)="mostrarNombre()">
-  Cambiar nombre
-</button>
+<div class="text-layout">
+  <h1>{{ nombre | titlecase }}</h1>
+  <h1>{{ valor | number }}</h1>
+  <h1>{{ objeto | json }}</h1>
+</div>
+<p-button label="Cambiar nombre" (click)="mostrarNombre()"></p-button>
