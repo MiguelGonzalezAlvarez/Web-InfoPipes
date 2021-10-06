@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class ComunesComponent implements OnInit {
+export class ComunesComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  nombreLower: string = 'miguel';
+  nombreUpper: string = 'MIGUEL';
+  nombreTitle: string = 'MiGuel GonZaleZ AlVaRez';
 
 }

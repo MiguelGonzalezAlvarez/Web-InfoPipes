@@ -1,1 +1,24 @@
-<p>comunes works!</p>
+<div class="text-layout">
+    <h1>Pipes comunes</h1>
+    <p>
+        Pipes incluidos en angular - Usualmente en el common module
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-4">
+        <p-card header="uppercase" [subheader]="nombreLower | uppercase">
+            {{ nombreLower | uppercase }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="lowercase" [subheader]="nombreUpper | lowercase">
+            {{ nombreUpper | lowercase }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="titlecase" [subheader]="nombreTitle | titlecase">
+            {{ nombreTitle | titlecase }}
+        </p-card>
+    </div>
+</div>
