@@ -6,11 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class NoComunesComponent implements OnInit {
+export class NoComunesComponent {
 
-  constructor() { }
+  // i18n select
+  nombre: string = 'Miguel';
+  genero: string = 'masculino';
+  invitacionMapper = {
+    'masculino': 'invitarlo',
+    'femenino': 'invitarla'
+  };
 
-  ngOnInit(): void {
-  }
+  // i18n plural
+  clientes: string[] = ['María', 'Pedro', 'Luis'];
+  clientesMapper = {
+    '=0': 'no tenemos clientes esperando',
+    '=1': 'tenemos un cliente esperando',
+    'other': 'tenemos # clientes esperando'
+  };
 
 }
