@@ -12,4 +12,6 @@ export class ComunesComponent {
   nombreUpper: string = 'MIGUEL';
   nombreTitle: string = 'MiGuel GonZaleZ AlVaRez';
 
+  fecha: Date = new Date();
+
 }
