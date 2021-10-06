@@ -8,14 +8,38 @@
 <div class="grid">
     <div class="col-4">
         <p-card header="Ventas netas" subheader="del presente año">
-            <div class="col-6">
-                {{ ventasNetas | number }}
-                <em class="pi pi-dollar"></em>
-                {{ ventasNetas | number:'1.4-4' }}
-                <em class="pi pi-dollar"></em>
-                {{ ventasNetas | number:'1.4-4':'en' }}
-                <em class="pi pi-dollar"></em>
-            </div>
+            <ul style="list-style: none;">
+                <li>
+                    {{ ventasNetas | number }}
+                    <em class="pi pi-dollar"></em>
+                </li>
+                <li>
+                    {{ ventasNetas | number:'1.4-4' }}
+                    <em class="pi pi-dollar"></em>
+                </li>
+                <li>
+                    {{ ventasNetas | number:'1.4-4':'en' }}
+                    <em class="pi pi-dollar"></em>
+                </li>
+            </ul>
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Ventas brutas" subheader="del presente año">
+            <ul style="list-style: none;">
+                <li>{{ ventasBrutas | currency:'USD' }}</li>
+                <li>{{ ventasBrutas | currency:'USD':'symbol-narrow' }}</li>
+                <li>{{ ventasBrutas | currency:'USD':'symbol-narrow':'1.4-4' }}</li>
+            </ul>
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Ganancia porcentual" subheader="del presente año">
+            <ul style="list-style: none;">
+                <li>{{ porcentaje | percent }}</li>
+                <li>{{ porcentaje | percent:'1.2-2' }}</li>
+                <li>{{ porcentaje | percent:'1.2-2':'en' }}</li>
+            </ul>
         </p-card>
     </div>
 </div>
