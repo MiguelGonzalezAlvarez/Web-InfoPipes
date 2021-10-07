@@ -24,4 +24,26 @@ export class NoComunesComponent {
     'other': 'tenemos # clientes esperando'
   };
 
+  // Metodos
+
+  cambiarPersona(): void {
+    // Cambiamos entre miguel y maria
+    if (this.nombre === 'Miguel' && this.genero === 'masculino') {
+      this.nombre = 'María';
+      this.genero = 'femenino';
+    }
+    else {
+      this.nombre = 'Miguel';
+      this.genero = 'masculino';
+    }
+  }
+
+  anadirCliente(): void {
+    this.clientes.push('');
+  }
+
+  borrarCliente(): void {
+    this.clientes.pop();
+  }
+
 }
