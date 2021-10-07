@@ -24,10 +24,8 @@ export class NoComunesComponent {
     'other': 'tenemos # clientes esperando'
   };
 
-  // Metodos
-
+  // slice pipe
   cambiarPersona(): void {
-    // Cambiamos entre miguel y maria
     if (this.nombre === 'Miguel' && this.genero === 'masculino') {
       this.nombre = 'María';
       this.genero = 'femenino';
@@ -44,6 +42,13 @@ export class NoComunesComponent {
 
   borrarCliente(): void {
     this.clientes.pop();
+  }
+
+  // key value pipe
+  persona = {
+    nombre:'Miguel',
+    edad: 22,
+    direccion: 'Muros de Nalón, Asturias'
   }
 
 }
