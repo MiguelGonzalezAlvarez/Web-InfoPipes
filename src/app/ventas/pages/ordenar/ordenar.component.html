@@ -1,8 +1,37 @@
 <div class="text-layout">
     <h1>Pipes personalizados</h1>
-    <p>
-        Pipes creados por {{ 'Miguel González Álvarez' | mayusculas:onMayus}}
-    </p>
-    <button pButton type="button" label="Toggle Mayúsculas" icon="pi pi-arrow-circle-up"
-        class="p-button-rounded p-button-success mr-2" (click)="toggleMayus()"></button>
+    <p>Pipes creados por {{ 'Miguel González Álvarez' | mayusculas:onMayus}}</p>
+
+    <p-toolbar class="p-mt-2">
+        <div class="p-toolbar-group-left"></div>
+        <div class="p-toolbar-group-right">
+            <button pButton type="button" label="Toggle Mayúsculas" icon="pi pi-arrow-circle-up"
+                class="p-button-rounded p-button-warning mr-2" (click)="toggleMayus()"></button>
+            <button pButton icon="pi pi-sort" label="Por nombre" class="p-button-rounded mr-2"></button>
+            <button pButton icon="pi pi-sort" label="Valores" class="p-button-rounded p-button-success mr-2"></button>
+            <button pButton icon="pi pi-sort" label="Por color" class="p-button-rounded p-button-help"></button>
+        </div>
+    </p-toolbar>
+
+    <div class="p-grid">
+        <div class="p-col p-mt-2">
+            <p-table [value]="heroes">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th id="nombre">Nombre</th>
+                        <th id="vuela">Vuela</th>
+                        <th id="color">Color</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-heroe>
+                    <tr>
+                        <td>{{ heroe.nombre }}</td>
+                        <td>{{ heroe.vuela | json }}</td>
+                        <td>{{ heroe.color }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
 </div>
