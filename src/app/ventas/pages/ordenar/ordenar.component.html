@@ -2,20 +2,24 @@
     <h1>Pipes personalizados</h1>
     <p>Pipes creados por {{ 'Miguel González Álvarez' | mayusculas:onMayus}}</p>
 
-    <p-toolbar class="p-mt-2">
-        <div class="p-toolbar-group-left"></div>
-        <div class="p-toolbar-group-right">
-            <button pButton type="button" label="Toggle Mayúsculas" icon="pi pi-arrow-circle-up"
+    <p-toolbar class="mt-2">
+        <div class="p-toolbar-group-left">
+            <button pButton icon="pi pi-arrow-circle-up" label="Toggle Mayúsculas"
                 class="p-button-rounded p-button-warning mr-2" (click)="toggleMayus()"></button>
-            <button pButton icon="pi pi-sort" label="Por nombre" class="p-button-rounded mr-2"></button>
-            <button pButton icon="pi pi-sort" label="Valores" class="p-button-rounded p-button-success mr-2"></button>
-            <button pButton icon="pi pi-sort" label="Por color" class="p-button-rounded p-button-help"></button>
+        </div>
+        <div class="p-toolbar-group-right">
+            <button pButton icon="pi pi-sort" label="Por nombre" class="p-button-rounded mr-2"
+                (click)="cambiarOrden('nombre')"></button>
+            <button pButton icon="pi pi-sort" label="Por vuela" class="p-button-rounded p-button-success mr-2"
+                (click)="cambiarOrden('vuela')"></button>
+            <button pButton icon="pi pi-sort" label="Por color" class="p-button-rounded p-button-help"
+                (click)="cambiarOrden('color')"></button>
         </div>
     </p-toolbar>
 
     <div class="p-grid">
-        <div class="p-col p-mt-2">
-            <p-table [value]="heroes">
+        <div class="p-col mt-2">
+            <p-table [value]="heroes | ordenar:ordenarPor">
                 <ng-template pTemplate="header">
                     <tr>
                         <th id="nombre">Nombre</th>
@@ -26,7 +30,34 @@
                 <ng-template pTemplate="body" let-heroe>
                     <tr>
                         <td>{{ heroe.nombre }}</td>
-                        <td>{{ heroe.vuela | json }}</td>
+                        <td>{{ heroe.vuela | vuela | titlecase }}</td>
+                        <td>{{ heroe.color }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div class="p-grid">
+        <div class="p-col mt-2">
+            <p-table [value]="heroes | slice:0">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th id="nombre" pSortableColumn="nombre">
+                            Nombre<p-sortIcon field="nombre"></p-sortIcon>
+                        </th>
+                        <th id="vuela" pSortableColumn="vuela">
+                            Vuela<p-sortIcon field="vuela"></p-sortIcon>
+                        </th>
+                        <th id="color" pSortableColumn="color">
+                            Color<p-sortIcon field="color"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-heroe>
+                    <tr>
+                        <td>{{ heroe.nombre }}</td>
+                        <td>{{ heroe.vuela | vuela | titlecase }}</td>
                         <td>{{ heroe.color }}</td>
                     </tr>
                 </ng-template>

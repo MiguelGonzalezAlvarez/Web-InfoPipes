@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Color, Heroe } from '../../interfaces/ventas.interfaces';
 
 @Component({
@@ -10,9 +10,10 @@ import { Color, Heroe } from '../../interfaces/ventas.interfaces';
 export class OrdenarComponent {
 
   onMayus: boolean = true;
+  ordenarPor: string = '';
   heroes: Heroe[] = [
     {
-      nombre:'Superman',
+      nombre: 'Superman',
       vuela: true,
       color: Color.azul
     },
@@ -28,8 +29,12 @@ export class OrdenarComponent {
     },
   ];
 
-  toggleMayus() {
+  toggleMayus(): void {
     this.onMayus = !this.onMayus;
+  }
+
+  cambiarOrden(orden: string): void {
+    this.ordenarPor = orden;
   }
 
 }
