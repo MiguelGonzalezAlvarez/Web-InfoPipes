@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class OrdenarComponent implements OnInit {
+export class OrdenarComponent {
 
-  constructor() { }
+  onMayus: boolean = true;
 
-  ngOnInit(): void {
+  toggleMayus() {
+    this.onMayus = !this.onMayus;
   }
 
 }
